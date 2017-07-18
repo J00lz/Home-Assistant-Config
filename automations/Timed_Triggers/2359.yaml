@@ -1,0 +1,21 @@
+######################################################################
+##  Stuff that needs to happen at 11:59 PM.
+######################################################################
+
+- alias: 'Reset Medicine Timer'
+  trigger:
+    - platform: time
+      at: '23:59:00'
+  condition:
+    - condition: state
+      entity_id: input_boolean.medicine
+      state: 'on'
+
+  action:
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.medicine
+
+    - service: logbook.log
+      data:
+        name: "Medicine Timer"
+        message: "The medicine timer has been reset"

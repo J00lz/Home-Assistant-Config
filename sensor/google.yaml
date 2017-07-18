@@ -1,0 +1,13 @@
+- platform: google_travel_time
+  name: Shawn Work Travel
+  api_key: AIzaSyB77fVV1EI-CeA6uSVidHWQzDEvLof88uk
+  origin: Home
+  destination: Work
+  options:
+    mode: driving
+
+- platform: google_travel_time
+  name: Shawn Home Travel
+  api_key: AIzaSyB77fVV1EI-CeA6uSVidHWQzDEvLof88uk
+  origin: Work
+  destination: Home

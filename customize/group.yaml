@@ -1,0 +1,11 @@
+group.family:
+  order: 1
+
+group.weather:
+  order: 2
+
+group.network:
+  order: 3
+
+camera.shawn:
+  order: 4

@@ -1,0 +1,2 @@
+#Enables tracking of the pi-hole
+- platform: pi_hole

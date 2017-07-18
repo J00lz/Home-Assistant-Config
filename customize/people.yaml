@@ -1,0 +1,6 @@
+device_tracker.androida695fad49ac419e0:
+  #entity_picture: /local/shawn.jpg
+  friendly_name: Shawn
+device_tracker.jessicasiphone:
+#  entity_picture: /local/jessica.jpg
+  friendly_name: Jessica

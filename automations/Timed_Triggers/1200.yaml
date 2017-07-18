@@ -1,0 +1,26 @@
+######################################################################
+##  Stuff that needs to happen at Noon.
+######################################################################
+
+- alias: 'Notify Jessica to take Medicine'
+  trigger:
+    - platform: time
+      at: '12:00:00'
+  condition:
+    - condition: state
+      entity_id: input_boolean.medicine
+      state: 'on'
+
+  action:
+    - service: script.speech_engine
+      data_template:
+        value1: 'Take your damn medicine Jessica!'
+
+    - service: script.ifttt_notify
+      data_template:
+        value1: 'Jessica has not taken her medicine yet'
+
+    - service: logbook.log
+      data:
+        name: "Medicine"
+        message: "Jessica has still not taken her damn medicine!"

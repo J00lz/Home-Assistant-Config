@@ -1,0 +1,5 @@
+  - name: Work
+    latitude: 34.511557
+    longitude: -82.646408
+    radius: 500
+    icon: mdi:medical-bag

@@ -1,0 +1,30 @@
+###################################
+##  LOG Medicine
+###################################
+- alias: 'Log Medicine Activity'
+#  hide_entity: True
+  trigger:
+    - platform: state
+      entity_id: input_boolean.medicine
+      from: 'off'
+      to: 'on'
+  action:
+#    - service: automation.turn_off
+#      entity_id: automation.log_medicine_activity
+    - service: logbook.log
+      data:
+        name: "Medicine Push"
+        message: "Took Medicine today."
+
+    - service: script.speech_engine
+      data_template:
+        value1: 'Jessica has taken her damn medicine!'
+
+
+    -  service: script.ifttt_notify
+       data_template:
+         value1: 'Took Medicine today.'
+
+#    -  delay:
+#         minutes: 1
+#    - service: automation.turn_on

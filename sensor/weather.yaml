@@ -1,0 +1,22 @@
+# DarkSky
+- platform: darksky
+  api_key: f9deec3fa54c217ecaae20d1414ecde6
+  monitored_conditions:
+    - apparent_temperature
+    - precip_probability
+    - precip_intensity
+    - temperature
+    - wind_speed
+    - wind_bearing
+    - cloud_cover
+    - humidity
+    - minutely_summary
+    - pressure
+#    - visibility
+#    - ozone
+#    - summary
+#    - precip_type
+#    - nearest_storm_distance
+#    - dew_point
+
+- platform: moon

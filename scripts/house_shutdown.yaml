@@ -1,0 +1,6 @@
+#Used when needing to turn off EVERYTHING in the house... ie leaving
+#alias: House Shutdown
+#sequence:
+#  - service: light.turn_off
+#    data:
+#      entity_id: group.all_lights

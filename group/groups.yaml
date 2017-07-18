@@ -1,0 +1,232 @@
+default_view:
+  name: Main View
+  view: yes
+  icon: mdi:home
+  entities:
+    - persistent_notification.update_available
+    - group.family
+    - group.weather
+#    - camera.shawn
+    - media_player.chromecast
+    - group.modes
+    - camera.mail
+game_center:
+  name: Game Center
+  view: yes
+  #icon: mdi:gamepad-variant
+  entities:
+    - group.games
+
+media_center:
+  name: Media Center
+  view: yes
+  entities:
+    - group.media
+    - group.radio
+
+information:
+  name: Information
+  view: yes
+  entities:
+    - group.shipping
+    - group.pi_hole
+    - group.speedtest
+    - group.home_assistant_status
+    - group.device_statuses
+
+light_controls:
+  name: Lights
+  view: yes
+  entities:
+    - group.lights
+
+ha_status:
+  name: HA Controls
+  view: yes
+  entities:
+    - group.network
+#    - group.lockouts
+    - group.system_info
+    - group.vacuum
+
+#bah2830 example
+#settings:
+#  name: Settings
+#  view: yes
+#  icon: mdi:settings
+#  entities:
+#    - group.global_settings
+#    - group.notification_settings
+#    - group.kitchen_settings
+#    - group.living_room_settings
+#    - group.office_settings
+#    - group.master_bedroom_settings
+#    - group.laundry_room_settings
+
+############
+#Groups
+############
+#scripts:
+#  name: Scripts
+#  entities:
+#  - 
+lights:
+  name: Lights
+  entities:
+    - light.living_room_couch
+    - light.living_room_lamp
+    - light.master_bedroom_bed
+    - light.master_bedroom_lamp
+    - light.pumping_room_lamp
+
+network:
+  name: Network
+  entities:
+    - input_boolean.restart_hass
+#    - sensor.pihole
+
+games:
+  name: Games
+  entities:
+    - sensor.freethemtits
+    - sensor.steam_76561198081049333
+
+home_assistant_status:
+  name: Home Assistant Status
+  entities:
+    - script.restart_ha
+    - sensor.ha_uptime
+    - sensor.since_last_boot_templated
+    - sensor.ha_installed_version
+    - sensor.disk_use_
+
+device_statuses:
+  name: Device Statuses
+  entities:
+    - sensor.hue_hub
+    - sensor.google_home
+    - sensor.google_chromecast
+    - sensor.alexa_echo
+    - sensor.amazon_fire_stick
+    - sensor.amazon_fire_tv
+    - sensor.raspberry_pi
+
+speedtest:
+  name: Speedtest
+  entities:
+    - sensor.speedtest_ping
+    - sensor.speedtest_download
+    - sensor.speedtest_upload
+
+pi_hole:
+  name: Pi-Hole Stats
+  entities:
+    - sensor.pihole_ads_blocked_today
+    - sensor.pihole_ads_percentage_blocked_today
+    - sensor.pihole_dns_queries_today
+
+shipping:
+  name: Shipping
+  entities:
+    - sensor.ups
+    - sensor.usps_mail
+    - sensor.usps_packages
+#    - sensor.fedex
+
+vacuum:
+  name: Xiaomi Vacuum
+  entities:
+    - switch.my_vacuum
+#lockouts:
+#  name: Lockouts
+#  entities:
+#    - input_select.company
+#    - input_select.lock_pc
+#    - input_select.media_lockout
+   
+media:
+  name: Media
+  entities:
+    - media_player.living_room
+    - media_player.master_bedroom_home
+
+radio:
+  name: Chromecast Radio
+  entities:
+    - input_select.radio_station
+    - input_select.chromecast_radio
+    - script.radio
+
+modes:
+  name: Modes
+  entities:
+    - input_boolean.guest_mode
+    - input_boolean.school_mode
+    - input_boolean.alert_mode
+    - input_boolean.speech_notifications
+
+weather:
+  name: Weather
+  entities:
+#    - sensor.dark_sky_summary
+    - sensor.dark_sky_minutely_summary
+#    - sensor.dark_sky_nearest_storm_distance
+    - sensor.dark_sky_precip_intensity
+    - sensor.dark_sky_humidity
+    - sensor.dark_sky_temperature
+
+#system_info:
+#  name: System Info
+#  entities:
+#    - sensor.systemmonitor
+
+#travel_times:
+#  name: Travel Times
+#  entities:
+#  - sensor.shawn_location_to_home
+#  - sensor.work_travel_time
+
+#------------------
+#Settings
+#bah2830 example
+#------------------
+#global_settings:
+#  name: Global
+#  entities:
+#    - automation.arriving_home
+#    - automation.nobody_home
+#    - automation.nest_while_home
+
+#notification_settings:
+#  name: Notifications
+#  entities:
+#    - automation.brent_leave_work
+#    - automation.emma_leave_home
+#    - automation.front_door_motion
+#    - automation.driveway_motion
+#    - automation.laundry_room_motion_sensor_battery_low
+
+#master_bedroom_settings:
+#  name: Master Bedroom
+#  entities:
+#    - automation.wakeup__work
+
+#kitchen_settings:
+#  name: Kitchen
+#  entities:
+#    - automation.kitchen_study_on
+
+#living_room_settings:
+#  name: Living Room
+#  entities:
+#    - automation.living_room_media
+
+#office_settings:
+#  name: Office
+#  entities:
+#    - automation.office_media
+
+#laundry_room_settings:
+#  name: Laundry Room
+#  entities:
+#    - automation.turn_on_laundry_room_light_with_motion

@@ -1,0 +1,25 @@
+shawn_shamu:
+  hide_if_away: false
+  mac: 44:80:EB:6E:8C:92
+  name: Shawn
+  picture:
+  gravatar: ramseys1990@gmail.com
+  track: true
+  vendor:
+  
+owntracks_shamu:
+  hide_if_away: false
+  mac:
+  name: owntracks
+  picture:
+  track: false
+  vendor:
+
+jessica_jessica:
+  hide_if_away: false
+  mac:
+  name: Jessica
+  picture:
+  gravatar:
+  track: true
+  vendor:

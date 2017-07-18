@@ -1,0 +1,11 @@
+# Xbox Live  
+- platform: xbox_live
+  api_key: 5b576718e478a73b4f0128356354bb920157b373
+  xuid:
+    - 2613696212314428
+
+# Steam
+- platform: steam_online
+  api_key: B3F761EB4EF4036EF727F94817CEC62C
+  accounts:
+    - 76561198081049333

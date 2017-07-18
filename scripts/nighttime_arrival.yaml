@@ -1,0 +1,38 @@
+nighttime_arrival:
+  sequence:
+    # Lets turn on the lights for Jessica when she gets home
+    # We'll also slowly turn them on for her for an added effect
+    - service: light.turn_on
+      data:
+        entity_id: light.living_room_couch
+        brightness: 100
+    - delay:
+        seconds: 5
+
+    - service: light.turn_on
+      data:
+        entity_id: light.living_room_lamp
+        brightness: 100
+    - delay:
+        seconds: 5
+
+    - service: light.turn_on
+      data:
+        entity_id: light.master_bedroom_bed
+        brightness: 100
+    - delay:
+        seconds: 5
+
+    - service: light.turn_on
+      data:
+        entity_id: light.master_bedroom_lamp
+        brightness: 100
+    - delay:
+        seconds: 5
+
+    - service: light.turn_on
+      data:
+        entity_id: light.pumping_room_lamp
+        brightness: 100
+    - delay:
+        seconds: 5

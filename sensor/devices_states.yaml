@@ -1,0 +1,35 @@
+- platform: template
+  sensors:
+    hue_hub:
+      friendly_name: 'Hue Hub'
+      value_template: "{{ 'Online' if is_state('device_tracker.hue_hub', 'home') else 'Offline' }}"
+
+
+    alexa_echo:
+      friendly_name: 'Alexa Echo'
+      value_template: "{{ 'Online' if is_state('device_tracker.alexa_echo', 'home') else 'Offline' }}"
+
+
+    amazon_fire_stick:
+      friendly_name: 'Amazon Fire Stick'
+      value_template: "{{ 'Online' if is_state('device_tracker.amazon_fire_stick', 'home') else 'Offline' }}"
+
+
+    google_home:
+      friendly_name: 'Google Home'
+      value_template: "{{ 'Online' if is_state('device_tracker.kitchen_home', 'home') else 'Offline' }}"
+
+
+    google_chromecast:
+      friendly_name: 'Google Chromecast'
+      value_template: "{{ 'Online' if is_state('device_tracker.google_chromecast', 'home') else 'Offline' }}"
+
+
+    raspberry_pi:
+      friendly_name: 'Raspberry Pi'
+      value_template: "{{ 'Online' if is_state('device_tracker.raspberry_pi', 'home') else 'Offline' }}"
+
+
+    amazon_fire_tv:
+      friendly_name: 'Amazon Fire TV'
+      value_template: "{{ 'Online' if is_state('device_tracker.amazon_fire_tv', 'home') else 'Offline' }}"

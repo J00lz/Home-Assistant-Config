@@ -1,0 +1,141 @@
+homeassistant:
+  # Name of the location where Home Assistant is running
+  name: Home
+  # Location required to calculate the time the sun rises and sets
+  latitude: 34.514706
+  longitude: -82.485528
+  # Impacts weather/sunrise data (altitude above sea level in meters)
+  elevation: 260.71
+  # metric for Metric, imperial for Imperial
+  unit_system: imperial
+  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  time_zone: America/New_York
+  packages: !include_dir_named packages
+
+# Show links to resources in log and frontend
+#introduction:
+
+#camera:
+#  name: Shawn
+#  platform: generic
+#  still_image_url: https://maps.googleapis.com/maps/api/staticmap?center={{ states.device_tracker.shawn_shamu.attributes.latitude }},{{ states.device_tracker.shawn_shamu.attributes.longitude }}&zoom=13&size=500x500&maptype=roadmap&markers=color:blue%7Clabel:S%7C{{ states.device_tracker.shawn_shamu.attributes.latitude }},{{ states.device_tracker.shawn_shamu.attributes.longitude }}
+#  limit_refetch_to_url_change: true
+
+# Enables the frontend
+frontend:
+
+panel_iframe:
+  router:
+    title: 'Router'
+    icon: 'mdi:router-wireless'
+    url: 'http://192.168.1.1'
+  configurator:
+    title: Configurator
+    icon: mdi:wrench
+    url: 'https://ramseys1990.duckdns.org:3218'
+http:
+  # Uncomment this to add a password (recommended!)
+  api_password: !secret api_password
+  # Uncomment this if you are using SSL or running in Docker etc
+#  base_url: ramseys1990.duckdns.org:8123
+  ssl_certificate: /etc/letsencrypt/live/ramseys1990.duckdns.org/fullchain.pem
+  ssl_key: /etc/letsencrypt/live/ramseys1990.duckdns.org/privkey.pem
+  base_url: ramseys1990.duckdns.org
+
+# Checks for available updates
+updater:
+
+# Discover some devices automatically
+discovery:
+
+# Allows you to issue voice commands from the frontend in enabled browsers
+conversation:
+
+# Enables support for tracking state changes over time.
+history:
+
+# View all events in a logbook
+logbook:
+
+# Track the sun
+sun:
+
+# Weather Prediction
+#sensor:
+#  platform: yr
+
+# Import Alexa Intents
+alexa:
+  intents: !include_dir_named alexa
+# Import automation
+automation: !include_dir_merge_list automations
+# Import Sensors
+sensor: !include_dir_merge_list sensor
+# Import groups
+group: !include_dir_merge_named group
+# Import zones
+zone: !include_dir_merge_named zone
+# Import notify
+notify: !include notify.yaml
+# Import scripts
+script: !include_dir_merge_named scripts
+# Import input_selects
+input_select: !include input_select.yaml
+
+# Text to speech
+tts:
+  platform: google
+
+mqtt:
+  broker: m13.cloudmqtt.com
+  port: 26312
+  username: !secret mqtt_username
+  password: !secret mqtt_password
+
+light: !include lights.yaml
+
+#mqtt:
+#  broker: 127.0.0.1
+#  port: 1883
+#  client_id: home-assistant-1
+#  username: pi
+#  password: JawsRules1
+
+# Trackers
+device_tracker:
+  - platform: linksys_smart
+    host: 192.168.1.1
+    
+#  - platform: nmap_tracker
+#    hosts: 192.168.10.1/24
+
+#  - platform: owntracks
+#    waypoints: True
+#    track_new_devices: yes
+
+ifttt:
+  key: !secret ifttt_key
+  
+input_boolean: !include_dir_merge_named input_boolean
+
+media_player:
+  - platform: cast
+
+    #host: 192.168.1.17
+    #name: chromecast
+
+  - platform: kodi
+    host: 192.168.49.1
+
+# Xiaomi vacuum
+#switch:
+#  - platform: xiaomi_vacuum
+#    host: 192.168.1.7
+#    name: 'My vacuum'
+#    token: '56384e41777a6930336847795a4f4957'
+camera:
+  - platform: local_file
+    name: Mail
+    file_path: /home/homeassistant/.homeassistant/mail/mail.gif
+  
+python_script:

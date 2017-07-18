@@ -1,0 +1,13 @@
+- name: pushbullet
+  platform: pushbullet
+  api_key: !secret pushbullet_key
+
+- platform: slack
+  name: slack
+  api_key: !secret slack_key
+  default_channel: '#thehouse'
+
+#- platform: html5
+#  name: chrome
+#  gcm_api_key: !env_var CHROME_PUSH_API
+#  gcm_sender_id: !env_var CHROME_PUSH_ID

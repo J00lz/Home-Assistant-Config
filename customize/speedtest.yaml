@@ -1,0 +1,13 @@
+###################################
+##  Speedtest Section
+###################################
+sensor.speedtest_download:
+  friendly_name: 'Download'
+  icon: mdi:speedometer
+
+sensor.speedtest_upload:
+  friendly_name: 'Upload'
+  icon: mdi:speedometer
+
+sensor.speedtest_ping:
+  friendly_name: "Ping"

@@ -1,0 +1,18 @@
+family:
+  name: Family
+  entities:
+  - group.shawn
+  - group.jessica
+#  - sensor.shawn_phone_battery
+#  - sensor.jessica_phone_battery
+#  - sensor.shawn_location_to_home
+
+shawn:
+  name: Shawn
+  entities:
+    - device_tracker.shawn
+
+jessica:
+  name: Jessica
+  entities:
+    - device_tracker.jessica

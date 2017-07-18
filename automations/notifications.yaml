@@ -1,0 +1,46 @@
+#bah2830 example
+#- alias: "Shawn Leave work"
+#  trigger:
+#    - platform: zone
+#      entity_id: device_tracker.shawn_shamu
+#      zone: zone.brent_work
+#      event: leave
+#  condition:
+#    - condition: time
+#      after: '15:00:00'
+#      before: '23:00:00'
+#      weekday:
+#        - mon
+#        - tue
+#        - wed
+#        - thu
+#        - fri
+#  action:
+#    service: notify.slack
+#    data_template:
+#      message: >
+#        Brent is leaving work.
+#        ETA: {{ states.sensor.brent_home_travel.attributes.duration_in_traffic }}
+#      target: "@emmahughes"
+
+#- alias: "Emma Leave Home"
+#  trigger:
+#    - platform: zone
+#      entity_id: group.emma
+#      zone: zone.home
+#      event: leave
+#  condition:
+#    - condition: template
+#      value_template: '{{ states.group.brent.state != "home" }}'
+#  action:
+#    service: notify.chrome
+#    data:
+#      title: "Emma Location Update"
+#      message: >
+#        Emma has left the house.
+#      data:
+#        url: "https://home.brentahughes.com/map"
+#      target:
+#        - brent_macbookpro
+#        - brent_phone
+#        - brent_work_macbookpro

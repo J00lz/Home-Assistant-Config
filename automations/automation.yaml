@@ -1,0 +1,70 @@
+# Restart HASS
+- alias: Restart HASS
+  trigger:
+    platform: state
+    entity_id: input_boolean.restart_hass
+    from: 'off'
+    to: 'on'
+  action:
+    service: homeassistant.restart
+
+# Notify of Shawn's Arrival
+#- alias: Notify Shawn Arrival
+#  trigger:
+#    - platform: state
+#      entity_id: device_tracker.shawnsphone
+#      from: 'not_home'
+#      to: 'home'
+#  action:
+#    service: script.speech_engine
+#    data_template:
+#      value1: "The {{ trigger.entity_id.split('.')[1].split('_')[0]}} {{ trigger.entity_id.split('.')[1].split('_')[1]}} has now been turned on for {{(trigger.to_state.state)}}."
+
+# Trigger this when the FIRST person arrives home
+# Will not trigger if someone is already home
+- alias: Nighttime Arrival
+  trigger:
+    - platform: state
+      entity_id: group.family
+      from: 'not_home'
+      to: 'home'
+  condition:
+    - condition: state
+      entity_id: sun.sun
+      state: 'below_horizon'
+  action:
+    service: script.turn_on
+    entity_id: script.nighttime_arrival
+
+# Notify of Jessica's Arrival
+#- alias: Notify Jessica Arrival
+#  trigger:
+#    - platform: state
+#      entity_id: device_tracker.jessicasiphone
+#      from: 'not_home'
+#      to: 'home'
+#  action:
+    # Notify that she's here
+#    - service: tts.google_say
+#      entity_id: media_player.kitchen_home
+#      data:
+#        message: "Yippie! Jessica is Home!"
+
+# Pep talk Jessica when she goes to the pumping room
+- alias: Pumping Room Notification
+  trigger:
+    - platform: state
+      entity_id: light.pumping_room_lamp
+      to: 'on'
+  condition:
+    - condition: state
+      entity_id: sun.sun
+      state: 'above_horizon'
+  action:
+    service: tts.google_say
+    entity_id: media_player.master_bedroom_home
+    data:
+      message: "Enjoy your pumping session milky moo! Sit back and relax"
+
+#- alias: Turn on Lights
+#  trigger:

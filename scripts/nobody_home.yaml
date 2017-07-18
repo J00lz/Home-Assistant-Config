@@ -1,0 +1,5 @@
+#alias: Nobody Home
+#sequence:
+#  - service: script.turn_on
+#    data:
+#      entity_id: script.house_shutdown
